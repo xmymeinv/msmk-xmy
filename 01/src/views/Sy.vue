@@ -1,0 +1,164 @@
+<!--  -->
+<template>
+<div class='sy'>
+    <div class="title">
+        <p class="a1">📕</p>
+        <p class="a2">
+            <input type="text" placeholder="搜索">
+        </p>
+        <p class="a3">✉</p>
+    </div>
+    <div class="cont">
+        <van-swipe :autoplay="3000">
+        <van-swipe-item v-for="(item, index) in swipe" :key="index">
+           <img :src="item.banner_img" alt="">
+        </van-swipe-item>
+        </van-swipe>
+    </div>
+    <div class="aa">
+        <p>大威天龙</p>
+    </div>
+    <div class="shi">
+        <p>资深讲师</p>
+        <p>更多></p>
+    </div>
+    <div class="bb">
+        <div class="b1" v-for="(item,index) in appIndex[0].list" :key="index">
+            <div class="b2"><img :src="item.teacher_avatar" alt=""></div>
+            <div class="b3">
+                <p>{{item.teacher_name}}</p>
+                <p>{{item.introduction}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="xmy"></div>
+</div>
+</template>
+
+<script>
+//这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
+//例如：import 《组件名称》 from '《组件路径》';
+import {banner,appIndex} from "@/http/api.js"
+export default {
+//import引入的组件需要注入到对象中才能使用
+components: {},
+data() {
+//这里存放数据
+return {
+    swipe:[],
+    appIndex:[]
+};
+},
+//监听属性 类似于data概念
+computed: {},
+//监控data中的数据变化
+watch: {},
+//方法集合
+methods: {
+    async getswipe(){
+        var res=await banner();
+        // console.log(res);
+        this.swipe=res.data.data
+    },
+    async getappIndex(){
+        var res=await appIndex();
+        console.log(res);
+        this.appIndex=res.data.data
+    },
+
+},
+//生命周期 - 创建完成（可以访问当前this实例）
+created() {
+    // var res=await banner();
+    // console.log(res);
+    this.getswipe()
+    this.getappIndex()
+},
+//生命周期 - 挂载完成（可以访问DOM元素）
+mounted() {
+
+},
+beforeCreate() {}, //生命周期 - 创建之前
+beforeMount() {}, //生命周期 - 挂载之前
+beforeUpdate() {}, //生命周期 - 更新之前
+updated() {}, //生命周期 - 更新之后
+beforeDestroy() {}, //生命周期 - 销毁之前
+destroyed() {}, //生命周期 - 销毁完成
+activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
+}
+</script>
+<style lang='scss' scoped>
+//@import url(); 引入公共css类
+.sy{
+    // height: 100%;
+    width: 100%;
+    background:#eaeaea;
+    .title{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        background:#fff;
+        .a1{
+            font-size: 20px;
+        }
+        .a2{
+            input{
+                height: 30px;
+                width: 280px;
+                padding-left: 20px;
+                border-radius: 30px;
+                border:1px solid #eaeaea;
+            }
+        }
+        .a3{
+            font-size: 30px;
+        }
+      }
+    .cont{
+        height: 300px;
+        border: 1px solid red;
+        background:#fff;
+    }
+    .shi{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 40px;
+        width: 90%;
+        margin:auto;
+        font-size: 16px;
+    }
+    .bb{
+        width: 100%;
+        .b1{
+            margin: auto;
+            height: 80px;
+            width: 330px;
+            display: flex;
+            // border: 1px solid red;
+            align-items: center;
+            padding-left: 20px;
+            border-radius: 10px;
+            background:#fff;
+            margin:20px;
+            .b2 img{
+                height: 40px;
+                width: 40px;
+                border-radius: 20px;
+            }
+            .b3{
+                margin-left: 20px;
+                p:first-child{
+                    font-size: 16px;
+                }
+                p:last-child{
+                    color:gray;
+                }
+            }
+        }
+    }
+    .xmy{
+        height: 300px;
+    }
+}
+</style>

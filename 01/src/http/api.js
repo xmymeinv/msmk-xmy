@@ -14,3 +14,24 @@ export function login(arg){
         method:'post',  
     })
 }
+export function tabber(arg){
+    return service({
+        url:request_url.tabber,
+        data:{},
+        method:'get',  
+    })
+}
+export function banner(arg){
+    return service({
+        url:request_url.banner,
+        data:[],
+        method:'get',  
+    })
+}
+export function appIndex(arg){
+    return service({
+        url:request_url.appIndex,
+        data:[],
+        method:'get',  
+    })
+}
