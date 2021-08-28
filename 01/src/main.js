@@ -4,7 +4,7 @@ import router from './router'
 import store from './store'
 import {baseUrl} from '@/config'
 console.log(baseUrl);
-
+import 'lib-flexible/flexible'
 Vue.config.productionTip = false
 
 new Vue({
