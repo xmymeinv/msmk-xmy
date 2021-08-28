@@ -5,6 +5,8 @@ import store from './store'
 import {baseUrl} from '@/config'
 console.log(baseUrl);
 import 'lib-flexible/flexible'
+import axios from 'axios'
+Vue.prototype.$axios=axios
 Vue.config.productionTip = false
 
 new Vue({
