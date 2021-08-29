@@ -1,75 +1,84 @@
 <!--  -->
 <template>
-    <div class="sy">
-        <div class="title">
-            <p class="a1">📕</p>
-            <p class="a2">
-                <input type="text" placeholder="搜索">
-            </p>
-            <p class="a3">✉</p>
-        </div>
-        <div class="cont">
-            <van-swipe :autoplay="3000">
-                <van-swipe-item v-for="(item, index) in swipe" :key="index">
-                    <img :src="item.banner_img" alt="">
-                </van-swipe-item>
-            </van-swipe>
-        </div>
-        <div class="a4">
-            <p>大威天龙</p>
-        </div>
-        <div class="shi">
-            <div class="bb">
-                <div class="a5">
-                    <p>资深讲师</p>
-                    <p>更多></p>
-                </div>
-                <div class="b1" v-for="(item,index) in appIndex[0].list" :key="index">
-                    <div class="b2">
-                        <img :src="item.teacher_avatar" alt="">
-                    </div>
-                    <div class="b3">
-                        <p>{{item.teacher_name}}</p>
-                        <p>{{item.introduction}}</p>
-                    </div>
-                </div>
-                <div class="ke">
-                    <p>课程推荐</p>
-                    <p>更多></p>
-                </div>
-                <div class="c1" v-for="(item1,index) in appIndex[1].list" :key="index">
-                    <div class="c2">
-                        <div class="c3">
-                            <div>
-                                <img :src="item1.cover_img" alt="">
-                            </div>
-                            <div class="c33">
-                                <p>{{item1.title}}</p>
-                                <p>{{item1.sales_num}}个人报名</p>
-                            </div>
-                        </div>
-                        <div class="c4">
-                            <p>{{item1.price}}</p>
-                        </div>
-                    </div>
-                </div>
-                 <div class="a5">
-                    <p>名师</p>
-                    <p>更多></p>
-                </div>
-                <div class="b1" v-for="(item2,index) in appIndex[2].list" :key="index">
-                    <div class="b2">
-                        <img :src="item2.teacher_avatar" alt="">
-                    </div>
-                    <div class="b3">
-                        <p>{{item2.teacher_name}}</p>
-                        <p>{{item2.introduction}}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="xmy"></div>
+  <div class="sy">
+    <div class="title">
+      <p class="a1">📕</p>
+      <p class="a2">
+        <input type="text" placeholder="搜索">
+      </p>
+      <p class="a3">✉</p>
     </div>
+    <div class="cont">
+      <van-swipe  :autoplay="3000" indicator-color="white">
+        <van-swipe-item >
+          <img
+            src="../../public/04.png"
+            alt=""
+          >
+        </van-swipe-item>
+        <van-swipe-item >
+          <img
+            src="http://120.53.31.103:84/uploads/image/2021-04-08/3g04sBbCgNAG6WRlnJANB7BtWVHXhwdiZHTM6uDp.jpeg"
+            alt=""
+          >
+        </van-swipe-item>
+      </van-swipe>
+    </div>
+    <div class="a4">
+      <p>大威天龙</p>
+    </div>
+    <div class="shi">
+      <div class="bb">
+        <div class="a5">
+          <p>资深讲师</p>
+          <p>更多></p>
+        </div>
+        <div class="b1" v-for="(item,index) in appIndex[0].list" :key="index">
+          <div class="b2">
+            <img :src="item.teacher_avatar" alt="">
+          </div>
+          <div class="b3">
+            <p>{{item.teacher_name}}</p>
+            <p>{{item.introduction}}</p>
+          </div>
+        </div>
+        <div class="ke">
+          <p>课程推荐</p>
+          <p>更多></p>
+        </div>
+        <div class="c1" v-for="(item1,index) in appIndex[1].list" :key="index">
+          <div class="c2">
+            <div class="c3">
+              <div>
+                <img :src="item1.cover_img" alt="">
+              </div>
+              <div class="c33">
+                <p>{{item1.title}}</p>
+                <p>{{item1.sales_num}}个人报名</p>
+              </div>
+            </div>
+            <div class="c4">
+              <p>{{item1.price}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="a5">
+          <p>名师</p>
+          <p>更多></p>
+        </div>
+        <div class="b1" v-for="(item2,index) in appIndex[2].list" :key="index">
+          <div class="b2">
+            <img :src="item2.teacher_avatar" alt="">
+          </div>
+          <div class="b3">
+            <p>{{item2.teacher_name}}</p>
+            <p>{{item2.introduction}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="xmy"></div>
+  </div>
 </template>
 
 <script>
@@ -149,16 +158,22 @@ export default {
     }
   }
   .cont {
-    height: 300px;
+    height: 200px;
+    width: 100%;
     // border: 1px solid red;
     background: #fff;
+    img{
+      height: 200px;
+      width: 100%;
+    }
   }
   .a4 {
-      background:#fff;
+    background: #fff;
     height: 50px;
     width: 100%;
-    p{
-        margin-left: 20px;
+    line-height: 50px;
+    p {
+      margin-left: 20px;
     }
   }
   .shi {

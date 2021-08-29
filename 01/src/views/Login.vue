@@ -86,7 +86,7 @@ export default {
         var res=await login({mobile:this.mobile,type:2,client:'1',sms_code:this.pass})
         console.log(res);
       if(res.data.code==200){
-        this.$router.push("/pass")
+        this.$router.push("/sy")
        }else{
          alert('请输入正确验证码')
        }
