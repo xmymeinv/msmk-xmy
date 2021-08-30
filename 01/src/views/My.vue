@@ -1,8 +1,9 @@
 <!--  -->
 <template>
     <div class="my">
+        <!-- <div >{{xmy.nickname}}</div> -->
         <div class="title">
-            <div class="aa">
+            <div class="aa" v-show="isshow">
                 <div class="a1">
                     <van-icon name="manager-o"/>
                 </div>
@@ -10,6 +11,12 @@
                     <span @click="login">登录</span>/
                     <span>注册</span>
                 </div>
+            </div>
+             <div class="aa" v-show="!isshow">
+                <div class="a1">
+                    <van-icon name="manager-o"/>
+                </div>
+                <div>{{$store.state.token.nickname}}</div>
             </div>
         </div>
         <div class="cont">
@@ -31,88 +38,112 @@
         <div class="bb">
             <div class="b1">
                 <p>
-                    <span><van-icon name="description" /></span>
+                    <span>
+                        <van-icon name="description"/>
+                    </span>
                     <span>我的作业</span>
                 </p>
                 <p>></p>
             </div>
-             <div class="b1">
+            <div class="b1">
                 <p>
-                    <span><van-icon name="description" /></span>
+                    <span>
+                        <van-icon name="description"/>
+                    </span>
                     <span>我的社区</span>
                 </p>
                 <p>></p>
             </div>
             <div class="xmy"></div>
-             <div class="b1">
+            <div class="b1">
                 <p>
-                    <span><van-icon name="description" /></span>
+                    <span>
+                        <van-icon name="description"/>
+                    </span>
                     <span>课程订单</span>
                 </p>
                 <p>></p>
             </div>
-             <div class="b1">
+            <div class="b1">
                 <p>
-                    <span><van-icon name="description" /></span>
+                    <span>
+                        <van-icon name="description"/>
+                    </span>
                     <span>图书订单</span>
                 </p>
                 <p>></p>
             </div>
             <div class="xmy"></div>
-             <div class="b1">
+            <div class="b1">
                 <p>
-                    <span><van-icon name="description" /></span>
+                    <span>
+                        <van-icon name="description"/>
+                    </span>
                     <span>优惠卷</span>
                 </p>
                 <p>></p>
             </div>
-             <div class="b1">
+            <div class="b1">
                 <p>
-                    <span><van-icon name="description" /></span>
+                    <span>
+                        <van-icon name="description"/>
+                    </span>
                     <span>学习卡</span>
                 </p>
                 <p>></p>
             </div>
-             <div class="b1">
+            <div class="b1">
                 <p>
-                    <span><van-icon name="description" /></span>
+                    <span>
+                        <van-icon name="description"/>
+                    </span>
                     <span>分销中心</span>
                 </p>
                 <p>></p>
             </div>
             <div class="xmy"></div>
-             <div class="b1">
+            <div class="b1">
                 <p>
-                    <span><van-icon name="description" /></span>
+                    <span>
+                        <van-icon name="description"/>
+                    </span>
                     <span>消息中心</span>
                 </p>
                 <p>></p>
             </div>
-             <div class="b1">
+            <div class="b1">
                 <p>
-                    <span><van-icon name="description" /></span>
+                    <span>
+                        <van-icon name="description"/>
+                    </span>
                     <span>地址管理</span>
                 </p>
                 <p>></p>
             </div>
-             <div class="b1">
+            <div class="b1">
                 <p>
-                    <span><van-icon name="description" /></span>
+                    <span>
+                        <van-icon name="description"/>
+                    </span>
                     <span>关于我们</span>
                 </p>
                 <p>></p>
             </div>
-             <div class="b1">
+            <div class="b1">
                 <p>
-                    <span><van-icon name="description" /></span>
+                    <span>
+                        <van-icon name="description"/>
+                    </span>
                     <span>意见反馈</span>
                 </p>
                 <p>></p>
             </div>
-             <div class="b1">
+            <div class="b1">
                 <p>
-                    <span><van-icon name="description" /></span>
-                    <span>设置</span>
+                    <span>
+                        <van-icon name="description"/>
+                    </span>
+                    <span @click="$router.push('/pass')">设置</span>
                 </p>
                 <p>></p>
             </div>
@@ -130,7 +161,10 @@ export default {
   components: {},
   data() {
     //这里存放数据
-    return {};
+    return {
+        // xmy:JSON.parse(localStorage.getItem('xmy')) || []
+        isshow:true
+    };
   },
   //监听属性 类似于data概念
   computed: {},
@@ -138,12 +172,19 @@ export default {
   watch: {},
   //方法集合
   methods: {
-      login(){
-          this.$router.push("/login")
-      }
+    login() {
+      this.$router.push("/login");
+    }
   },
   //生命周期 - 创建完成（可以访问当前this实例）
-  created() {},
+  created() {
+     if(this.$store.state.token!=""){
+         this.isshow=false
+     }else{
+         this.isshow=true
+     }
+      
+  },
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted() {},
   beforeCreate() {}, //生命周期 - 创建之前
@@ -165,62 +206,66 @@ export default {
     width: 100%;
     position: relative;
     background: rgb(221, 5, 5);
-   .aa{
-      height: 100px;
-      width: 100px;
+    .aa {
       text-align: center;
       line-height: 100px;
-      border-radius: 50px;
-      background: #eaeaea;
+      color: white;
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      margin: auto;
-      color:white;
-      .a1{
-          font-size: 50px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      .a1 {
+        font-size: 50px;
+        height: 100px;
+        width: 100px;
+        background: #eaeaea;
+       
+        border-radius: 50px;
       }
-      .a2{
+      .a2 {
+        //   background: green;
+        span {
           font-size: 18px;
+          height: 30px;
+          width: 100%;
+        }
       }
     }
   }
-  .cont{
-      width: 100%;
-      height: 60px;
-      ul{
-          display: flex;
-          align-items: center;
-          justify-content: space-around;
-          text-align: center;
-          font-size: 14px;
-      }
+  .cont {
+    width: 100%;
+    height: 60px;
+    ul {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      text-align: center;
+      font-size: 14px;
+    }
   }
-  .bb{
-      width: 100%;
-      .b1{
-          color:gray;
-          width: 86%;
-          height: 50px;
-          margin: auto;
-          display: flex;
-          font-size: 15px;
-          align-items: center;
-          justify-content: space-between;
-          border-bottom:1px solid #eaeaea;
-      }
+  .bb {
+    width: 100%;
+    .b1 {
+      color: gray;
+      width: 86%;
+      height: 50px;
+      margin: auto;
+      display: flex;
+      font-size: 15px;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #eaeaea;
+    }
   }
 }
-.xmy{
-    height: 15px;
-    width: 100%;
-    background: #eaeaea;
+.xmy {
+  height: 15px;
+  width: 100%;
+  background: #eaeaea;
 }
-.ymx{
-    height: 50px;
-    width: 100%;
-    background: #eaeaea;
+.ymx {
+  height: 50px;
+  width: 100%;
+  background: #eaeaea;
 }
 </style>

@@ -14,6 +14,13 @@ export function login(arg){
         method:'post',  
     })
 }
+export function password(arg){
+    return service({
+        url:request_url.password,
+        data:arg,
+        method:'post',  
+    })
+}
 export function tabber(arg){
     return service({
         url:request_url.tabber,

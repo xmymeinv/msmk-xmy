@@ -39,6 +39,16 @@ const routes = [
     ]
   },
   {
+    path: '/pass1',
+    name: 'Pass1',
+    component: () => import('../views/Pass1.vue')
+  },
+  {
+    path: '/pass',
+    name: 'Pass',
+    component: () => import('../views/Pass.vue')
+  },
+  {
     path: '/about',
     name: 'About',
     component: () => import('../views/About.vue')
@@ -49,10 +59,11 @@ const routes = [
     component: () => import('../views/Login.vue')
   },
   {
-    path: '/pass',
-    name: 'Pass',
-    component: () => import('../views/Pass.vue')
-  }
+    path: '/login1',
+    name: 'Login1',
+    component: () => import('../views/Login1.vue')
+  },
+ 
 ]
 
 const router = new VueRouter({

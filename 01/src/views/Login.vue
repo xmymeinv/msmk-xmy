@@ -18,7 +18,7 @@
       </div>
       <div class="a4">
         <p>*未注册的手机号将自动注册</p>
-        <p>密码登录</p>
+        <p @click="go">密码登录</p>
       </div>
       <div class="a5">
         <p>第三方登录</p>
@@ -64,7 +64,6 @@ export default {
   //方法集合
   methods: {
      async huo(){
-      //  this.flag=true
        if(this.mobile==""){
          alert('请输入手机号')
        }else{
@@ -90,6 +89,9 @@ export default {
        }else{
          alert('请输入正确验证码')
        }
+      },
+      go(){
+        this.$router.push("/login1")
       }
   },
   //生命周期 - 创建完成（可以访问当前this实例）
@@ -209,6 +211,6 @@ export default {
   width: 80px;
 }
 .xmy {
-  height: 1000px;
+  height: 300px;
 }
 </style>

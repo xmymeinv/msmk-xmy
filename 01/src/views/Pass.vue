@@ -1,15 +1,22 @@
 <!--  -->
 <template>
-<div class='pass'>
-    <div class="title">
-        <p>设置密码</p>
+    <div class="pass">
+        <div class="title">
+            <div class="a1">
+                <p>
+                    <input type="text" placeholder="设置密码" @click="$router.push('/pass1')">
+                </p>
+                <p>></p>
+            </div>
+            <div class="a2">
+                <p>
+                    <input type="text" placeholder="注销账号">
+                </p>
+                <p>></p>
+            </div>
+        </div>
+        <button class="btn" @click="tui">退出登录</button>
     </div>
-    <div class="cont">
-        <p class="a1"><input type="text" placeholder="请设置登录密码"></p>
-        <p class="a2"><input type="text" placeholder='请再次输入密码'></p>
-        <button>确定</button>
-    </div>
-</div>
 </template>
 
 <script>
@@ -17,82 +24,82 @@
 //例如：import 《组件名称》 from '《组件路径》';
 
 export default {
-//import引入的组件需要注入到对象中才能使用
-components: {},
-data() {
-//这里存放数据
-return {
-
+  //import引入的组件需要注入到对象中才能使用
+  components: {},
+  data() {
+    //这里存放数据
+    return {};
+  },
+  //监听属性 类似于data概念
+  computed: {},
+  //监控data中的数据变化
+  watch: {},
+  //方法集合
+  methods: {
+      tui(){
+          this.$store.commit('tui'),
+          this.$router.push("/my")
+      }
+  },
+  //生命周期 - 创建完成（可以访问当前this实例）
+  created() {},
+  //生命周期 - 挂载完成（可以访问DOM元素）
+  mounted() {},
+  beforeCreate() {}, //生命周期 - 创建之前
+  beforeMount() {}, //生命周期 - 挂载之前
+  beforeUpdate() {}, //生命周期 - 更新之前
+  updated() {}, //生命周期 - 更新之后
+  beforeDestroy() {}, //生命周期 - 销毁之前
+  destroyed() {}, //生命周期 - 销毁完成
+  activated() {} //如果页面有keep-alive缓存功能，这个函数会触发
 };
-},
-//监听属性 类似于data概念
-computed: {},
-//监控data中的数据变化
-watch: {},
-//方法集合
-methods: {
-
-},
-//生命周期 - 创建完成（可以访问当前this实例）
-created() {
-
-},
-//生命周期 - 挂载完成（可以访问DOM元素）
-mounted() {
-
-},
-beforeCreate() {}, //生命周期 - 创建之前
-beforeMount() {}, //生命周期 - 挂载之前
-beforeUpdate() {}, //生命周期 - 更新之前
-updated() {}, //生命周期 - 更新之后
-beforeDestroy() {}, //生命周期 - 销毁之前
-destroyed() {}, //生命周期 - 销毁完成
-activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
-}
 </script>
 <style lang='scss' scoped>
 //@import url(); 引入公共css类
-.pass{
-    height: 100%;
+.pass {
+  height: 100%;
+  width: 100%;
+  .title {
+    height: 120px;
     width: 100%;
-    .title{
-        height: 70px;
-        width: 100%;
-        line-height: 70px;
-        text-align: center;
-        font-size: 18px;
+    margin-top: 20px;
+
+    .a1 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 80%;
+      margin: auto;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #eeeeee;
+      input {
+        height: 35px;
+        width: 280px;
+        border: none;
+      }
     }
-    .cont{
-        height: 300px;
-        width: 100%;
-        .a1{
-            input{
-               height: 50px;
-               width: 100%;
-               padding-left: 15px;
-               font-size: 16px;
-               border:none;
-            }
-        }
-         .a2{
-            input{
-               height: 50px;
-               width: 100%;
-               padding-left: 15px;
-               font-size: 16px;
-               border:none;
-            }
-        }
-        button{
-            height: 50px;
-            width: 70%;
-            background:red;
-            color:white;
-            margin-top: 60px;
-            margin-left: 55px;
-            border:none;
-            border-radius: 5px;
-        }
+    .a2 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 80%;
+      margin: auto;
+      border-bottom: 1px solid #eeeeee;
+      input {
+        height: 35px;
+        width: 280px;
+        border: none;
+      }
     }
+  }
+  .btn{
+      height: 40px;
+      width: 300px;
+      background:red;
+      color:#fff;
+      margin-left: 40px;
+      border:none;
+      border-radius: 10px;  
+  }
 }
 </style>
