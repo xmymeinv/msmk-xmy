@@ -14,7 +14,7 @@ service.interceptors.request.use(config=>{
         forbidClick: true,
     })
     // config.headers['Authorization']=sessionStorage.getItem('token')
-    console.log(config);
+    // console.log(config);
     
     return config
 },
@@ -23,7 +23,7 @@ error => {
     return Promise.reject(error)
   }
 )
-// 响应拦截
+// 响应拦截 关闭loding动画
 service.interceptors.response.use(res=>{
     loading.clear()
     console.log(res);

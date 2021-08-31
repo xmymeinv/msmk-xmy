@@ -33,7 +33,7 @@
           <p>资深讲师</p>
           <p>更多></p>
         </div>
-        <div class="b1" v-for="(item,index) in appIndex[0].list" :key="index">
+        <div class="b1" v-for="(item,index) in appIndex[0].list" :key="index" @click="goxq">
           <div class="b2">
             <img :src="item.teacher_avatar" alt="">
           </div>
@@ -110,6 +110,11 @@ export default {
       var res = await appIndex();
       console.log(res);
       this.appIndex = res.data.data;
+    },
+    goxq(){
+      this.$router.push("/xq")
+      // this.$store.commit('xq',this.appIndex)
+      
     }
   },
   //生命周期 - 创建完成（可以访问当前this实例）

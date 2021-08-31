@@ -6,7 +6,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    token:''
+    token:'',
+    name:''
   },
   mutations: {
     dotoken(state,data){
@@ -14,6 +15,9 @@ export default new Vuex.Store({
     },
     tui(state){
       state.token=''
+    },
+    sub(state,data){
+      state.name=data
     }
   },
   actions: {

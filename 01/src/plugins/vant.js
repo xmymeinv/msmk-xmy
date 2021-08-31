@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { Button, List, Cell, Tabbar, TabbarItem ,Search,Swipe, SwipeItem ,Icon ,} from 'vant'
+import { Button, List, Cell, Tabbar, TabbarItem ,Search,Swipe, SwipeItem ,Icon ,Calendar, Tab, Tabs} from 'vant'
 Vue.use(Button)
 Vue.use(Cell)
 Vue.use(List)
@@ -8,3 +8,6 @@ Vue.use(Search)
 Vue.use(Swipe);
 Vue.use(SwipeItem);
 Vue.use(Icon);
+Vue.use(Calendar);
+Vue.use(Tab);
+Vue.use(Tabs);

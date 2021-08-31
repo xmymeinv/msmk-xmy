@@ -4,5 +4,8 @@ module.exports={
     password:'/password',
     tabber:'/nav/bottom',
     banner:'/banner',
-    appIndex:'/recommend/appIndex'
+    appIndex:'/recommend/appIndex',
+    teach:'/teacher/search/attrs',
+    teacher:'/teacher/',
+    mainCourse:'/teacher/mainCourse'
 }

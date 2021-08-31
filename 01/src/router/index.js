@@ -63,7 +63,41 @@ const routes = [
     name: 'Login1',
     component: () => import('../views/Login1.vue')
   },
- 
+  {
+    path: '/day',
+    name: 'Day',
+    component: () => import('../views/Day.vue')
+  },
+  {
+    path: '/xq',
+    name: 'Xq',
+    component: () => import('../views/Xq.vue')
+  },
+  {
+    path: '/mysq',
+    name: 'Mysq',
+    component: () => import('../views/Mysq.vue')
+  },
+  {
+    path: '/mykc',
+    name: 'Mykc',
+    component: () => import('../views/Mykc.vue')
+  },
+  {
+    path: '/myyh',
+    name: 'Myyh',
+    component: () => import('../views/Myyh.vue')
+  },
+  {
+    path: '/myyj',
+    name: 'Myyj',
+    component: () => import('../views/Myyj.vue')
+  },
+  {
+    path: '/mymy',
+    name: 'Mymy',
+    component: () => import('../views/Mymy.vue')
+  },
 ]
 
 const router = new VueRouter({

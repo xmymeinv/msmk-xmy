@@ -1,12 +1,12 @@
 <!--  -->
 <template>
     <div class="kc">
-        <div class="b1" v-for="(item,index) in appIndex[2].list" :key="index">
+        <div class="b1" v-for="(item,index) in kc" :key="index" @click="goxq(item.id)">
             <div class="b2">
-                <img :src="item.teacher_avatar" alt="">
+                <img :src="item.avatar" alt="">
             </div>
             <div class="b3">
-                <p>{{item.teacher_name}}</p>
+                <p>{{item.real_name}}</p>
                 <p>{{item.introduction}}</p>
             </div>
         </div>
@@ -17,14 +17,14 @@
 <script>
 //这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
 //例如：import 《组件名称》 from '《组件路径》';
-import { appIndex } from "@/http/api.js";
+import { teach } from "@/http/api.js";
 export default {
   //import引入的组件需要注入到对象中才能使用
   components: {},
   data() {
     //这里存放数据
     return {
-      appIndex: []
+      kc: []
     };
   },
   //监听属性 类似于data概念
@@ -33,15 +33,17 @@ export default {
   watch: {},
   //方法集合
   methods: {
-    async getappIndex() {
-      var res = await appIndex();
-      console.log(res);
-      this.appIndex = res.data.data;
+    
+     goxq(id){
+      this.$router.push({path:'/xq',query:{id:id}})
     }
   },
   //生命周期 - 创建完成（可以访问当前this实例）
-  created() {
-    this.getappIndex();
+  async created() {
+    var res=await teach()
+     console.log(res);
+    this.kc=res.data.data.list
+
   },
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted() {},

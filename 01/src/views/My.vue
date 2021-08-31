@@ -3,6 +3,7 @@
     <div class="my">
         <!-- <div >{{xmy.nickname}}</div> -->
         <div class="title">
+            
             <div class="aa" v-show="isshow">
                 <div class="a1">
                     <van-icon name="manager-o"/>
@@ -16,7 +17,10 @@
                 <div class="a1">
                     <van-icon name="manager-o"/>
                 </div>
-                <div>{{$store.state.token.nickname}}</div>
+                <div>{{$store.state.token.nickname}}
+                     <span @click="$router.push('/day')">签到</span>
+                </div>
+               
             </div>
         </div>
         <div class="cont">
@@ -42,7 +46,7 @@
                         <van-icon name="description"/>
                     </span>
                     <span>我的作业</span>
-                </p>
+            </p>
                 <p>></p>
             </div>
             <div class="b1">
@@ -50,26 +54,7 @@
                     <span>
                         <van-icon name="description"/>
                     </span>
-                    <span>我的社区</span>
-                </p>
-                <p>></p>
-            </div>
-            <div class="xmy"></div>
-            <div class="b1">
-                <p>
-                    <span>
-                        <van-icon name="description"/>
-                    </span>
-                    <span>课程订单</span>
-                </p>
-                <p>></p>
-            </div>
-            <div class="b1">
-                <p>
-                    <span>
-                        <van-icon name="description"/>
-                    </span>
-                    <span>图书订单</span>
+                    <span @click="$router.push('/mysq')">我的社区</span>
                 </p>
                 <p>></p>
             </div>
@@ -79,7 +64,26 @@
                     <span>
                         <van-icon name="description"/>
                     </span>
-                    <span>优惠卷</span>
+                    <span @click="$router.push('/mykc')">课程订单</span>
+                </p>
+                <p>></p>
+            </div>
+            <div class="b1">
+                <p>
+                    <span>
+                        <van-icon name="description"/>
+                    </span>
+                    <span @click="$router.push('/mykc')">图书订单</span>
+                </p>
+                <p>></p>
+            </div>
+            <div class="xmy"></div>
+            <div class="b1">
+                <p>
+                    <span>
+                        <van-icon name="description"/>
+                    </span>
+                    <span  @click="$router.push('/myyh')">优惠卷</span>
                 </p>
                 <p>></p>
             </div>
@@ -125,7 +129,7 @@
                     <span>
                         <van-icon name="description"/>
                     </span>
-                    <span>关于我们</span>
+                    <span @click="$router.push('/mymy')">关于我们</span>
                 </p>
                 <p>></p>
             </div>
@@ -134,7 +138,7 @@
                     <span>
                         <van-icon name="description"/>
                     </span>
-                    <span>意见反馈</span>
+                    <span @click="$router.push('/myyj')">意见反馈</span>
                 </p>
                 <p>></p>
             </div>
@@ -206,6 +210,7 @@ export default {
     width: 100%;
     position: relative;
     background: rgb(221, 5, 5);
+    border-radius: 0% 0% 20px 20px;
     .aa {
       text-align: center;
       line-height: 100px;

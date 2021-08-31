@@ -42,3 +42,23 @@ export function appIndex(arg){
         method:'get',  
     })
 }
+export function teach(){
+    return service({
+        url:request_url.teach,
+        data:[],
+        method:'get',  
+    })
+}
+export function mainCourse(arg){
+    return service({
+        url:request_url.mainCourse,
+        data:arg,
+        method:'post',  
+    })
+}
+export function teacher(arg){
+    return service({
+        url:request_url.teacher+arg,
+        method:'get',  
+    })
+}
