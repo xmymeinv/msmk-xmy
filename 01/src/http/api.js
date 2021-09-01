@@ -62,3 +62,27 @@ export function teacher(arg){
         method:'get',  
     })
 }
+export function signRecord(){
+    return service({
+        url:request_url.signRecord,
+        method:'get',  
+    })
+}
+export function nav(){
+    return service({
+        url:request_url.nav,
+        method:'get',  
+    })
+}
+export function courseBasis(){
+    return service({
+        url:request_url.courseBasis,
+        method:'get',  
+    })
+}
+export function courseInfo(arg){
+    return service({
+        url:request_url.courseInfo+arg,
+        method:'get',  
+    })
+}

@@ -2,22 +2,6 @@
 <template>
     <div class="day">
         <div class="xmy">
-            <!-- <div class="title">
-        <div class="a"><van-icon name="smile-o" /></div>
-        <div>
-            <p>{{$store.state.token.nickname}}</p>
-            <p>积分：3</p>
-        </div>
-    </div>
-    <div class="cont">
-    <van-calendar
-         title="日历"
-        :poppable="false"
-        :show-confirm="false"
-        :style="{ height: '300px' }"
-        :row-height='35'
-        />
-            </div>-->
             <div class="title">
                 <div class="left">
                     <div class="a">
@@ -35,10 +19,11 @@
             <div class="cont">
                 <van-calendar
                     title="日历"
+                    :show-title='false'
                     :poppable="false"
                     :show-confirm="false"
-                    :style="{ height: '300px',width:'300px' }"
-                    :row-height="35"
+                    :style="{ height: '280px',width:'300px' }"
+                    :row-height="39"
                 />
             </div>
         </div>
@@ -97,7 +82,7 @@
 <script>
 //这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
 //例如：import 《组件名称》 from '《组件路径》';
-
+import { signRecord } from "@/http/api.js";
 export default {
   //import引入的组件需要注入到对象中才能使用
   components: {},
@@ -112,7 +97,11 @@ export default {
   //方法集合
   methods: {},
   //生命周期 - 创建完成（可以访问当前this实例）
-  created() {},
+  async created() {
+    var res=await signRecord();
+    console.log(res);
+    
+  },
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted() {},
   beforeCreate() {}, //生命周期 - 创建之前
@@ -163,7 +152,7 @@ export default {
       }
     }
     .cont {
-      height: 300px;
+      height: 250px;
       width: 100%;
       margin: auto;
       .van-calendar {
@@ -177,12 +166,10 @@ export default {
   .bb {
     height: 300px;
     width: 100%;
-    // border:2px solid red;
     margin-top: 120px;
     .b1 {
       width: 100%;
       height: 150px;
-      // border: 3px solid greenyellow;
       .b2 {
         display: flex;
         width: 90%;

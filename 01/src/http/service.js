@@ -26,7 +26,7 @@ error => {
 // 响应拦截 关闭loding动画
 service.interceptors.response.use(res=>{
     loading.clear()
-    console.log(res);
+    // console.log(res);
     
     return Promise.resolve(res)
 },error=>{

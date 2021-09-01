@@ -24,8 +24,12 @@
         </van-swipe-item>
       </van-swipe>
     </div>
-    <div class="a4">
-      <p>大威天龙</p>
+    <div class="a4" @click="$router.push('/course')">
+      <p>
+        <img :src="nav[0].nav_img" alt="">
+      </p>
+      <p>{{nav[0].name}}</p>
+      
     </div>
     <div class="shi">
       <div class="bb">
@@ -84,7 +88,7 @@
 <script>
 //这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
 //例如：import 《组件名称》 from '《组件路径》';
-import { banner, appIndex } from "@/http/api.js";
+import { banner, appIndex,nav} from "@/http/api.js";
 export default {
   //import引入的组件需要注入到对象中才能使用
   components: {},
@@ -92,7 +96,8 @@ export default {
     //这里存放数据
     return {
       swipe: [],
-      appIndex: []
+      appIndex: [],
+      nav:[]
     };
   },
   //监听属性 类似于data概念
@@ -108,21 +113,26 @@ export default {
     },
     async getappIndex() {
       var res = await appIndex();
-      console.log(res);
+      // console.log(res);
       this.appIndex = res.data.data;
     },
     goxq(){
       this.$router.push("/xq")
       // this.$store.commit('xq',this.appIndex)
       
+    },
+    async getnav(){
+      var res=await nav();
+      console.log(res);
+      this.nav=res.data.data
     }
   },
   //生命周期 - 创建完成（可以访问当前this实例）
   created() {
-    // var res=await banner();
-    // console.log(res);
+    
     this.getswipe();
     this.getappIndex();
+    this.getnav()
   },
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted() {},
@@ -140,7 +150,7 @@ export default {
 .sy {
   // height: 100%;
   width: 100%;
-  background: #eaeaea;
+  background:whitesmoke;
   .title {
     display: flex;
     align-items: center;
@@ -173,12 +183,18 @@ export default {
     }
   }
   .a4 {
-    background: #fff;
-    height: 50px;
+    background:#fff;
+    height: 100px;
     width: 100%;
-    line-height: 50px;
+    // line-height: 50px;
     p {
       margin-left: 20px;
+      padding-top: 10px;
+      color:gray;
+    }
+    img{
+      height: 45px;
+      width: 45px;
     }
   }
   .shi {

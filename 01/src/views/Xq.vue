@@ -12,7 +12,7 @@
                     <p>{{xq.introduction}}</p>
                 </van-tab>
                 <van-tab title="主讲课程">
-                    <div class="c1" v-for="(item,index) in zjkc" :key="index">
+                    <div class="c1" v-for="(item,index) in zjkc" :key="index" @click="gokcxq(item.id)">
                         <div class="c2">
                             <div class="c3">
                                 <div>
@@ -54,7 +54,11 @@ export default {
   //监控data中的数据变化
   watch: {},
   //方法集合
-  methods: {},
+  methods: {
+    gokcxq(id){
+      this.$router.push({path:'/kcxq',query:{id:id}})
+    }
+  },
   //生命周期 - 创建完成（可以访问当前this实例）
   async created() {
     this.id = this.$route.query.id;

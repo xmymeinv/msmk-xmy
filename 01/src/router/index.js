@@ -98,6 +98,16 @@ const routes = [
     name: 'Mymy',
     component: () => import('../views/Mymy.vue')
   },
+  {
+    path: '/course',
+    name: 'Course',
+    component: () => import('../views/Course.vue')
+  },
+  {
+    path: '/kcxq',
+    name: 'Kcxq',
+    component: () => import('../views/Kcxq.vue')
+  },
 ]
 
 const router = new VueRouter({

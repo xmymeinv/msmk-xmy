@@ -7,5 +7,9 @@ module.exports={
     appIndex:'/recommend/appIndex',
     teach:'/teacher/search/attrs',
     teacher:'/teacher/',
-    mainCourse:'/teacher/mainCourse'
+    mainCourse:'/teacher/mainCourse',
+    signRecord:'/user/integral/signRecord',
+    nav:'/nav',
+    courseBasis:'/courseBasis',
+    courseInfo:'/courseInfo/basis_id=',
 }

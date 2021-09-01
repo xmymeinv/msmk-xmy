@@ -41,7 +41,7 @@ export default {
   //生命周期 - 创建完成（可以访问当前this实例）
   async created() {
     var res=await teach()
-     console.log(res);
+    //  console.log(res);
     this.kc=res.data.data.list
 
   },
