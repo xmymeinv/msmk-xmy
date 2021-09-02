@@ -1,4 +1,4 @@
-<!--  -->
+<!-- 课程 -->
 <template>
     <div class="kc">
         <div class="b1" v-for="(item,index) in kc" :key="index" @click="goxq(item.id)">

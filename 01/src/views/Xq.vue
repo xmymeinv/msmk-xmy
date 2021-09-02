@@ -1,4 +1,4 @@
-<!--  -->
+<!--课程详情1  -->
 <template>
     <div class="xq">
         <div class="title">

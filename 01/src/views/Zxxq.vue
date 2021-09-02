@@ -1,34 +1,33 @@
-<!-- 我的 设置 -->
+<!-- 资讯详情 -->
 <template>
-    <div class="pass">
+    <div class="zxxq">
         <div class="title">
+            <img :src="zxxq.thumb_img" alt="">
+            <p class="aa">{{zxxq.title}}</p>
             <div class="a1">
-                <p>
-                    <input type="text" placeholder="设置密码" @click="$router.push('/pass1')">
-                </p>
-                <p>></p>
+                    <p>{{zxxq.click_rate}}次预览</p>
+                    <p>{{time}}</p>
             </div>
-            <div class="a2">
-                <p>
-                    <input type="text" placeholder="注销账号">
-                </p>
-                <p>></p>
-            </div>
+            <p class="a2">{{zxxq.description}}</p>
+            <p class="a3" v-html='zxxq.content'></p>
         </div>
-        <button class="btn" @click="tui">退出登录</button>
     </div>
 </template>
 
 <script>
 //这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
 //例如：import 《组件名称》 from '《组件路径》';
-
+import { detail } from "@/http/api";
 export default {
   //import引入的组件需要注入到对象中才能使用
   components: {},
   data() {
     //这里存放数据
-    return {};
+    return {
+      id: "",
+      zxxq: [],
+      time:''
+    };
   },
   //监听属性 类似于data概念
   computed: {},
@@ -36,15 +35,24 @@ export default {
   watch: {},
   //方法集合
   methods: {
-      tui(){
-          this.$store.commit('tui'),
-          this.$router.push("/my")
-      }
+     
   },
   //生命周期 - 创建完成（可以访问当前this实例）
-  created() {},
+  async created() {
+    this.id = this.$route.query.id;
+    var res = await detail({
+      information_id: this.id
+    });
+    console.log(res);
+    this.zxxq = res.data.data;
+  },
   //生命周期 - 挂载完成（可以访问DOM元素）
-  mounted() {},
+  mounted() {
+       var data=new Date();
+       var m=data.getMonth()+1;
+       var r=data.getDate();
+       this.time=m+'-'+r;
+  },
   beforeCreate() {}, //生命周期 - 创建之前
   beforeMount() {}, //生命周期 - 挂载之前
   beforeUpdate() {}, //生命周期 - 更新之前
@@ -56,50 +64,46 @@ export default {
 </script>
 <style lang='scss' scoped>
 //@import url(); 引入公共css类
-.pass {
+.zxxq {
   height: 100%;
   width: 100%;
   .title {
-    height: 120px;
+    height: 350px;
     width: 100%;
-    margin-top: 20px;
-
+    margin: auto;
+    img {
+      height: 100%;
+      width: 100%;
+    }
+    .aa {
+      font-size: 22px;
+      margin-left: 20px;
+    }
     .a1 {
+      width: 100%;
       display: flex;
+      margin-top: 10px;
+      color: gray;
       align-items: center;
       justify-content: space-between;
-      width: 80%;
-      margin: auto;
-      margin-bottom: 20px;
-      border-bottom: 1px solid #eeeeee;
-      input {
-        height: 35px;
-        width: 280px;
-        border: none;
+      p:first-child{
+          margin-left: 20px
       }
-    }
-    .a2 {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 80%;
-      margin: auto;
-      border-bottom: 1px solid #eeeeee;
-      input {
-        height: 35px;
-        width: 280px;
-        border: none;
+       p:last-child{
+          margin-right:20px
       }
-    }
-  }
-  .btn{
-      height: 40px;
-      width: 300px;
-      background:red;
-      color:#fff;
-      margin-left: 40px;
-      border:none;
-      border-radius: 10px;  
+      }
+      .a2{
+          height: 150px;
+          line-height:150px;
+          font-size: 20px;
+          color:gray;
+          text-align: center;
+      }
+      .a3{
+          font-size:17px;
+          margin-left: 20px;
+      }
   }
 }
 </style>

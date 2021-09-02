@@ -1,4 +1,4 @@
-<!--  -->
+<!-- 我的 关于我们 -->
 <template>
 <div class='mymy'>
     {{$store.state.name}}

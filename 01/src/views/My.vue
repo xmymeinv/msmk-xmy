@@ -1,4 +1,4 @@
-<!--  -->
+<!-- 我的 -->
 <template>
     <div class="my">
         <!-- <div >{{xmy.nickname}}</div> -->

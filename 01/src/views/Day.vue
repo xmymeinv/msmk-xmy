@@ -1,4 +1,4 @@
-<!--  -->
+<!-- 签到页面 -->
 <template>
     <div class="day">
         <div class="xmy">

@@ -1,4 +1,4 @@
-<!--  -->
+<!--tabber  -->
 <template>
 <div class='home'>
  <div class="tab">
